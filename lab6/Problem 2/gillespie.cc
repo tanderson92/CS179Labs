@@ -136,9 +136,9 @@ int main(int argc, char *argv[])
                 sample_var_dev, sample_mean_dev, nSims);
     }
 
-    gpuErrchk(cudaMemcpy(sample_var, sample_var_dev,
-        SAMPLE_SIZE * sizeof(float), cudaMemcpyDeviceToHost));
     gpuErrchk(cudaMemcpy(sample_mean, sample_mean_dev,
+        SAMPLE_SIZE * sizeof(float), cudaMemcpyDeviceToHost));
+    gpuErrchk(cudaMemcpy(sample_var, sample_var_dev,
         SAMPLE_SIZE * sizeof(float), cudaMemcpyDeviceToHost));
 
     printf("%%%% Computed Mean(s) %%%%\n");
